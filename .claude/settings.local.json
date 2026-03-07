@@ -5,7 +5,10 @@
       "Bash(git:*)",
       "Bash(gh auth:*)",
       "Bash(gh repo:*)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(export:*)",
+      "Bash(rm:*)",
+      "Bash(taskkill:*)"
     ]
   }
 }

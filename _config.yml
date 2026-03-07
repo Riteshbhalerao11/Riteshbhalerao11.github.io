@@ -7,8 +7,6 @@ exclude:
   - "/vendor/"
   - "Gemfile"
   - "Gemfile.lock"
-  - "README.md"
-  - "LICENSE.md"
 
 # Site settings
 title: "Ritesh's Blog"
@@ -19,8 +17,6 @@ description: >
   Personal blog and portfolio of Ritesh Bhalerao.
 baseurl: ""
 url: "https://riteshbhalerao11.github.io"
-cover: ""
-logo: ""
 
 # Build settings
 markdown: kramdown
@@ -60,16 +56,3 @@ social:
     url: https://www.linkedin.com/in/ritesh-bhalerao
     desc: Connect with me on LinkedIn
     share: true
-
-# Social sharing protocols
-protocols:
-    fb_image: "/assets/logo.png"
-    fb_image_width: 612
-    fb_image_height: 605
-    fb_image_type: "image/png"
-
-    twitter_image: "/assets/logo.png"
-
-    os_repo: "https://github.com/Riteshbhalerao11/Riteshbhalerao11.github.io"
-    os_rcs_type: "git"
-    os_src: "git@github.com:Riteshbhalerao11/Riteshbhalerao11.github.io.git"
