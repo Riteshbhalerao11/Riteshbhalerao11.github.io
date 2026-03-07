@@ -1,0 +1,493 @@
+// Custom theme overrides with CSS custom properties for dark mode support
+
+:root {
+  // Warm earthy palette
+  --color-bg: #F7F1DE;
+  --color-bg-secondary: #EDE7D2;
+  --color-surface: #FAF6E8;
+  --color-text: #2C3330;
+  --color-text-secondary: #5C6560;
+  --color-text-muted: #8A8D82;
+  --color-accent: #7D8B75;
+  --color-accent-light: #A5A58D;
+  --color-accent-hover: #5C6856;
+  --color-highlight: #D6CEAB;
+  --color-border: #D4CCAE;
+  --color-header-bg: #F7F1DE;
+  --color-header-shadow: rgba(44, 51, 48, 0.08);
+  --color-footer-bg: #2C3330;
+  --color-footer-text: #E8E2CF;
+  --color-code-bg: #EDE7D2;
+  --color-blockquote: #7A7D72;
+  --color-hero-bg: #3D4A45;
+  --color-hero-text: #F7F1DE;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1B1F1D;
+  --color-bg-secondary: #252A27;
+  --color-surface: #2C322F;
+  --color-text: #E8E2CF;
+  --color-text-secondary: #A8A598;
+  --color-text-muted: #73756C;
+  --color-accent: #A5A58D;
+  --color-accent-light: #C4B998;
+  --color-accent-hover: #BDB5A0;
+  --color-highlight: #3A3D30;
+  --color-border: #3A3F3B;
+  --color-header-bg: #1B1F1D;
+  --color-header-shadow: rgba(0, 0, 0, 0.35);
+  --color-footer-bg: #141816;
+  --color-footer-text: #C8C3B0;
+  --color-code-bg: #252A27;
+  --color-blockquote: #7D7F74;
+  --color-hero-bg: #252A27;
+  --color-hero-text: #E8E2CF;
+}
+
+// ==============================
+// Base overrides
+// ==============================
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+a {
+  color: var(--color-accent) !important;
+  transition: color 0.2s ease;
+  &:hover, &:focus, &:active {
+    color: var(--color-accent-hover) !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+p { color: var(--color-text); }
+
+hr { border-bottom-color: var(--color-border); }
+
+code {
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-text) !important;
+}
+
+blockquote {
+  color: var(--color-blockquote) !important;
+  border-left-color: var(--color-border) !important;
+}
+
+// ==============================
+// Navigation - flexbox override
+// ==============================
+
+.navigation {
+  background: var(--color-header-bg) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  padding: 0 2em !important;
+  z-index: 100 !important;
+
+  &.scrolled {
+    box-shadow: 0 1px 12px var(--color-header-shadow) !important;
+  }
+
+  .navigation-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 960px;
+    margin: 0 auto;
+    height: 60px;
+    float: none !important;
+    // kill bourbon clearfix pseudo
+    &::after { display: none !important; }
+  }
+
+  .nav-logo {
+    font-weight: 700 !important;
+    font-size: 1.15em !important;
+    color: var(--color-text) !important;
+    letter-spacing: -0.02em;
+    text-decoration: none !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    &:hover {
+      text-decoration: none !important;
+      color: var(--color-text) !important;
+    }
+  }
+
+  // hide old logo if present
+  .logo { display: none !important; }
+
+  .navigation-menu-button {
+    color: var(--color-text) !important;
+    display: block;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    @media (min-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  .nav-right {
+    display: none;
+    @media (min-width: 768px) {
+      display: flex !important;
+      align-items: center;
+      gap: 1.5em;
+    }
+    // mobile: shown via JS slideToggle
+    &.show, &[style*="block"] {
+      display: block;
+    }
+  }
+
+  // mobile dropdown styling
+  @media (max-width: 767px) {
+    .navigation-wrapper {
+      flex-wrap: wrap;
+    }
+    .nav-right {
+      width: 100%;
+      padding: 0.5em 0 1em 0;
+      text-align: right;
+      .nav-item {
+        display: block;
+        padding: 0.4em 0;
+      }
+      .theme-toggle {
+        margin-top: 0.5em;
+      }
+    }
+  }
+
+  .nav-item {
+    color: var(--color-text-secondary) !important;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+    &:hover {
+      color: var(--color-accent) !important;
+      text-decoration: none !important;
+    }
+  }
+
+  // hide old nav elements
+  nav[role="navigation"] { display: none !important; }
+}
+
+// ==============================
+// Dark mode toggle
+// ==============================
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-bg-secondary);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+// ==============================
+// Hero / Site header with topo pattern
+// ==============================
+
+.site-header-container {
+  background-color: var(--color-hero-bg) !important;
+  background-image: url('../assets/hero_bg.png') !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--color-hero-text) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4) !important;
+  position: relative;
+
+  .scrim {
+    background: rgba(44, 51, 48, 0.3) !important;
+    padding: 5em 1em !important;
+    @media (min-width: 768px) {
+      padding: 7em 1em !important;
+    }
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 1;
+    .title {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.03em;
+      color: var(--color-hero-text) !important;
+    }
+    .subtitle {
+      color: var(--color-hero-text) !important;
+      opacity: 0.85;
+      font-style: normal !important;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+[data-theme="dark"] .site-header-container .scrim {
+  background-color: rgba(27, 31, 29, 0.35);
+}
+
+// ==============================
+// Post list
+// ==============================
+
+.page-content {
+  background-color: var(--color-bg);
+
+  .post-list {
+    li { padding: 1.5em 0; }
+
+    h2 a.post-link {
+      color: var(--color-text) !important;
+      font-weight: 700;
+      transition: color 0.2s ease;
+      &:hover {
+        color: var(--color-accent) !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  .post-meta {
+    color: var(--color-text-muted) !important;
+    .post-date, .post-categories { color: var(--color-text-muted) !important; }
+    .post-categories a { color: var(--color-accent) !important; }
+  }
+
+  .post-excerpt p { color: var(--color-text-secondary) !important; }
+
+  .pagination {
+    color: var(--color-text-muted);
+    .fa-stack .fa-square { color: var(--color-accent); }
+  }
+}
+
+// ==============================
+// Single post
+// ==============================
+
+.post {
+  .post-header-container {
+    background-color: var(--color-hero-bg) !important;
+    background-image: url('../assets/hero_bg.png') !important;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-hero-text) !important;
+    &.has-cover { text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important; }
+    .info { color: var(--color-hero-text) !important; opacity: 0.8; }
+  }
+  .post-content { color: var(--color-text); line-height: 1.85; }
+}
+
+// ==============================
+// Pages
+// ==============================
+
+.page {
+  .post-header { color: var(--color-text); }
+  .posts-list .post-date { color: var(--color-text-muted) !important; }
+  .profile { border-radius: 50%; }
+}
+
+// ==============================
+// Writing page
+// ==============================
+
+.writing-section {
+  margin-bottom: 2.5em;
+
+  h2 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75em;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid var(--color-accent-light);
+    display: inline-block;
+  }
+
+  .writing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0.75em 0;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5em;
+
+      &:last-child { border-bottom: none; }
+
+      a {
+        font-weight: 500;
+        color: var(--color-text) !important;
+        &:hover { color: var(--color-accent) !important; }
+      }
+
+      .date {
+        color: var(--color-text-muted);
+        font-size: 0.85em;
+        white-space: nowrap;
+      }
+
+      .category-tag {
+        font-size: 0.75em;
+        padding: 0.15em 0.6em;
+        border-radius: 3px;
+        background: var(--color-bg-secondary);
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}
+
+// ==============================
+// Footer - flexbox layout
+// ==============================
+
+.site-footer {
+  background-color: var(--color-footer-bg) !important;
+  color: var(--color-footer-text) !important;
+  border-top: none !important;
+  padding: 3em 2em 2em 2em !important;
+
+  // hide old wrapper
+  > .wrapper { display: none !important; }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .footer-left {
+    flex: 2;
+    min-width: 200px;
+  }
+
+  .footer-center, .footer-right {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .footer-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--color-footer-text) !important;
+    margin: 0 0 0.3em 0;
+  }
+
+  .footer-desc {
+    font-size: 0.85em;
+    color: var(--color-footer-text) !important;
+    opacity: 0.7;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .footer-label {
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-footer-text) !important;
+    opacity: 0.5;
+    margin: 0 0 0.3em 0;
+  }
+
+  a {
+    color: var(--color-footer-text) !important;
+    text-decoration: none !important;
+    font-size: 0.9em;
+    transition: color 0.2s ease;
+    &:hover {
+      color: var(--color-accent-light) !important;
+    }
+    i {
+      width: 1.2em;
+      text-align: center;
+      color: var(--color-accent-light);
+      margin-right: 0.3em;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 1.5em;
+    }
+  }
+}
+
+// ==============================
+// Page divider
+// ==============================
+
+.page-divider {
+  .one { background: var(--color-border) !important; }
+  .two { background: var(--color-bg) !important; }
+}
+
+// ==============================
+// Selection
+// ==============================
+
+::selection {
+  background: var(--color-accent-light);
+  color: var(--color-bg);
+}

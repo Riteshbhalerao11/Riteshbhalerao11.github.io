@@ -19,8 +19,8 @@ description: >
   Personal blog and portfolio of Ritesh Bhalerao.
 baseurl: ""
 url: "https://riteshbhalerao11.github.io"
-cover: "/assets/header_image.jpg"
-logo: "/assets/logo.png"
+cover: ""
+logo: ""
 
 # Build settings
 markdown: kramdown
