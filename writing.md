@@ -10,7 +10,9 @@ Everything I write — blog posts, research notes, and other musings.
 <div class="writing-section">
   <h2>Blog</h2>
   <ul class="writing-list">
-    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'life' or post.categories contains 'tech'" %}
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'life'" %}
+    {% assign tech_posts = site.posts | where_exp: "post", "post.categories contains 'tech'" %}
+    {% assign blog_posts = blog_posts | concat: tech_posts | uniq %}
     {% for post in blog_posts %}
     <li>
       <span>
