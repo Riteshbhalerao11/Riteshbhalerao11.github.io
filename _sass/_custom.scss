@@ -1,48 +1,48 @@
 // Custom theme overrides with CSS custom properties for dark mode support
 
 :root {
-  // Warm earthy palette
-  --color-bg: #F7F1DE;
-  --color-bg-secondary: #EDE7D2;
-  --color-surface: #FAF6E8;
-  --color-text: #2C3330;
-  --color-text-secondary: #5C6560;
-  --color-text-muted: #8A8D82;
-  --color-accent: #7D8B75;
-  --color-accent-light: #A5A58D;
-  --color-accent-hover: #5C6856;
-  --color-highlight: #D6CEAB;
-  --color-border: #D4CCAE;
-  --color-header-bg: #F7F1DE;
-  --color-header-shadow: rgba(44, 51, 48, 0.08);
-  --color-footer-bg: #2C3330;
-  --color-footer-text: #E8E2CF;
-  --color-code-bg: #EDE7D2;
-  --color-blockquote: #7A7D72;
-  --color-hero-bg: #3D4A45;
-  --color-hero-text: #F7F1DE;
+  // Refined earthy palette — warm linen with sage accents
+  --color-bg: #F4F1EA;
+  --color-bg-secondary: #ECE9E1;
+  --color-surface: #FAF8F3;
+  --color-text: #2D3331;
+  --color-text-secondary: #5A6560;
+  --color-text-muted: #8B8E84;
+  --color-accent: #6A8464;
+  --color-accent-light: #96A48A;
+  --color-accent-hover: #4D6348;
+  --color-highlight: #DDD8CA;
+  --color-border: #D5D0C3;
+  --color-header-bg: #F4F1EA;
+  --color-header-shadow: rgba(45, 51, 49, 0.06);
+  --color-footer-bg: #272E2B;
+  --color-footer-text: #E4DFD0;
+  --color-code-bg: #ECE9E1;
+  --color-blockquote: #787B72;
+  --color-hero-bg: #2F3A35;
+  --color-hero-text: #F4F1EA;
 }
 
 [data-theme="dark"] {
-  --color-bg: #1B1F1D;
-  --color-bg-secondary: #252A27;
-  --color-surface: #2C322F;
-  --color-text: #E8E2CF;
-  --color-text-secondary: #A8A598;
-  --color-text-muted: #73756C;
-  --color-accent: #A5A58D;
-  --color-accent-light: #C4B998;
-  --color-accent-hover: #BDB5A0;
-  --color-highlight: #3A3D30;
-  --color-border: #3A3F3B;
-  --color-header-bg: #1B1F1D;
-  --color-header-shadow: rgba(0, 0, 0, 0.35);
-  --color-footer-bg: #141816;
-  --color-footer-text: #C8C3B0;
-  --color-code-bg: #252A27;
-  --color-blockquote: #7D7F74;
-  --color-hero-bg: #252A27;
-  --color-hero-text: #E8E2CF;
+  --color-bg: #191D1B;
+  --color-bg-secondary: #212725;
+  --color-surface: #2C3330;
+  --color-text: #E5DFCE;
+  --color-text-secondary: #ADA899;
+  --color-text-muted: #72746B;
+  --color-accent: #C4BA8F;
+  --color-accent-light: #D6CC9C;
+  --color-accent-hover: #D0C7A4;
+  --color-highlight: #343830;
+  --color-border: #373C39;
+  --color-header-bg: #191D1B;
+  --color-header-shadow: rgba(0, 0, 0, 0.4);
+  --color-footer-bg: #121613;
+  --color-footer-text: #C9C4B0;
+  --color-code-bg: #212725;
+  --color-blockquote: #7C7E74;
+  --color-hero-bg: #1E2422;
+  --color-hero-text: #E5DFCE;
 }
 
 // ==============================
@@ -57,7 +57,7 @@ body {
   background-color: var(--color-bg) !important;
   color: var(--color-text) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
 a {
@@ -68,9 +68,15 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   color: var(--color-text);
-  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Outfit', 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-family: 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
   font-weight: 700;
 }
 
@@ -240,10 +246,10 @@ blockquote {
   position: relative;
 
   .scrim {
-    background: rgba(44, 51, 48, 0.3) !important;
-    padding: 5em 1em !important;
+    background: rgba(44, 51, 48, 0.25) !important;
+    padding: 3.5em 1em !important;
     @media (min-width: 768px) {
-      padding: 7em 1em !important;
+      padding: 4.5em 1em !important;
     }
   }
 
@@ -251,17 +257,15 @@ blockquote {
     position: relative;
     z-index: 1;
     .title {
-      font-family: 'Inter', sans-serif !important;
-      font-weight: 800 !important;
-      letter-spacing: -0.03em;
-      color: var(--color-hero-text) !important;
-    }
-    .subtitle {
-      color: var(--color-hero-text) !important;
-      opacity: 0.85;
-      font-style: normal !important;
-      font-weight: 300;
-      letter-spacing: 0.02em;
+      font-family: 'DM Sans', sans-serif !important;
+      font-weight: 500 !important;
+      font-size: 1.8rem !important;
+      letter-spacing: 0.12em;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      @media (min-width: 768px) {
+        font-size: 2.3rem !important;
+      }
     }
   }
 }

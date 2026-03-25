@@ -9,8 +9,8 @@ exclude:
   - "Gemfile.lock"
 
 # Site settings
-title: "Ritesh's Blog"
-subtitle: "Thoughts, Projects & More"
+title: "Ritesh Bhalerao"
+tagline: "making sense of things"
 email: ritesh.work.personal@gmail.com
 name: Ritesh Bhalerao
 description: >
